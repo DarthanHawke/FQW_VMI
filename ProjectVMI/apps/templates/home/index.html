@@ -1,0 +1,62 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header mb-5">
+        <h5 class="card-category">Vendor-managed inventory</h5>
+        <h3 class="card-title">Расчёт VMI</h3>
+      </div>
+      <div class="card-body">
+        <div>
+          <h2><span>VMI:</span><img src="/static/assets/img/vmimodel2.png"></h2>
+        </div>
+          <div>
+          <h2><span>Введите данные:</span></h2>
+                 <div><form action="" method="post">
+                     {% csrf_token %}
+                 <h4 class="typography-line"><span>Плата за заказ: </span>
+                     <input id="C1" type="number" name="C1"></h4>
+                 <h4 class="typography-line"><span>Плата за заказ: </span>
+                     <input id="C2" type="number" name="C2"></h4>
+                 <h4 class="typography-line"><span>Плата за хранение: </span>
+                     <input id="H" type="number" name="H"></h4>
+                 <h4 class="typography-line"><span>Объём спроса: </span>
+                     <input id="R" type="number" name="R"></h4>
+                 <h4 class="typography-line"><span>Место занимаемое товаром на складе: </span>
+                     <input id="F" type="number" name="F"></h4>
+                 <h4 class="typography-line"><span>Колличество места на складе заказчика: </span>
+                     <input id="D" type="number" name="D"></h4>
+                 <h4 class="typography-line"><span>Доступный бюджет: </span>
+                     <input id="A" type="number" name="A"></h4>
+                <input type="submit" class="btn btn-fill btn-primary" value="Найти">
+                 </form></div>
+                 <span style="display:{{ visibility }}">
+                     <br/>
+                     <h2>Результаты:</h2>
+                     <h3>Частота пополнения между поставщиком и покупателем Kvmi: {{ k }}</h3>
+                     <h3>Объём заказа покупателя q: {{ q }}</h3>
+                     <h3>Объём заказа поставщика Q: {{ Q }}</h3>
+                     <h3>Стоимость поставок VMI: {{ TC }}</h3>
+                     <h3>Занимаемое место на складе заказчика F: {{ F1 }}</h3>
+                     <h3>Занимаемое место на складе поставщика F: {{ F2 }}</h3>
+                     <h3>Общая стоимость системы поставок VMI: {{ vmi }}</h3>
+                 </span>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

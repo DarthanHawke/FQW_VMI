@@ -1,0 +1,37 @@
+<div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a target="_blank" class="simple-text logo-mini">
+            VMI
+          </a>
+          <a target="_blank" class="simple-text logo-normal">
+            Calculate VMI
+          </a>
+        </div>
+
+        <ul class="nav">
+
+        <li class="{% if 'index' in segment %} active {% endif %}">
+            <a href="/">
+              <i class="tim-icons icon-align-center"></i>
+              <p>Вычисление</p>
+            </a>
+          </li>
+
+          <li class="{% if 'graph' in segment %} active {% endif %}">
+            <a href="/graph.html">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>График</p>
+            </a>
+          </li>
+
+          <li class="{% if 'development' in segment %} active {% endif %}">
+            <a href="/development.html">
+              <i class="tim-icons icon-world"></i>
+              <p>О разработке</p>
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
