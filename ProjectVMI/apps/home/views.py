@@ -22,24 +22,19 @@ def index(request):
              R = form.cleaned_data['R']
              H = form.cleaned_data['H']
              F = form.cleaned_data['F']
-             D = form.cleaned_data['D']
              A = form.cleaned_data['A']
-             args = [C1, C2, R, H, F, D]
-             lb = [1, 1]
-             ub = [A/(C1+C2), R]
-             xopt, fopt = pso(VMIform.VMI, lb, ub, f_ieqcons=VMIform.limitations, maxiter=250, phip=2, phig=2,
-                              minstep=1, args=args)
-             q = '{:.0f}'.format(float(xopt[0]))
-             Q = '{:.0f}'.format(float(xopt[0] * xopt[1]))
-             k = '{:.1f}'.format(float(xopt[1]))
-             F1 = '{:.0f}'.format(xopt[0] * F)
-             F2 = '{:.0f}'.format(xopt[0] * xopt[1] * F)
+             args = [C1, C2, R, H, F]
+             lb = [1]
+             ub = [A/(C1+C2)]
+             xopt, fopt = pso(VMIform.VMI, lb, ub, args=args)
+             Q = '{:.0f}'.format(float(xopt[0]))
+             F = '{:.0f}'.format(xopt[0] * F)
              vmi = '{:.0f}'.format(float(fopt))
-             minargs = [xopt[0], xopt[1], C1, C2, R, H, F, D]
+             minargs = [xopt[0], C1, C2, R, H]
              TC = VMIform.TC(minargs)
              TC = '{:.0f}'.format(float(TC))
              visibility = "block"
-             data = {"vmi": vmi, "q": q, "k": k, "Q": Q, "F1": F1, "F2": F2,
+             data = {"vmi": vmi, "Q": Q, "F": F,
                      "TC": TC, 'visibility': visibility}
              html_template = loader.get_template('home/index.html')
              return HttpResponse(html_template.render(data, request))

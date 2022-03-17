@@ -23,9 +23,9 @@
           <h2><span>Введите данные:</span></h2>
                  <div><form action="" method="post">
                      {% csrf_token %}
-                 <h4 class="typography-line"><span>Плата за заказ: </span>
+                 <h4 class="typography-line"><span>Плата за заказ поставщиков: </span>
                      <input id="C1" type="number" name="C1"></h4>
-                 <h4 class="typography-line"><span>Плата за заказ: </span>
+                 <h4 class="typography-line"><span>Плата за заказ заказчиком: </span>
                      <input id="C2" type="number" name="C2"></h4>
                  <h4 class="typography-line"><span>Плата за хранение: </span>
                      <input id="H" type="number" name="H"></h4>
@@ -33,8 +33,6 @@
                      <input id="R" type="number" name="R"></h4>
                  <h4 class="typography-line"><span>Место занимаемое товаром на складе: </span>
                      <input id="F" type="number" name="F"></h4>
-                 <h4 class="typography-line"><span>Колличество места на складе заказчика: </span>
-                     <input id="D" type="number" name="D"></h4>
                  <h4 class="typography-line"><span>Доступный бюджет: </span>
                      <input id="A" type="number" name="A"></h4>
                 <input type="submit" class="btn btn-fill btn-primary" value="Найти">
@@ -42,12 +40,9 @@
                  <span style="display:{{ visibility }}">
                      <br/>
                      <h2>Результаты:</h2>
-                     <h3>Частота пополнения между поставщиком и покупателем Kvmi: {{ k }}</h3>
-                     <h3>Объём заказа покупателя q: {{ q }}</h3>
-                     <h3>Объём заказа поставщика Q: {{ Q }}</h3>
-                     <h3>Стоимость поставок VMI: {{ TC }}</h3>
-                     <h3>Занимаемое место на складе заказчика F: {{ F1 }}</h3>
-                     <h3>Занимаемое место на складе поставщика F: {{ F2 }}</h3>
+                     <h3>Объём заказа Q: {{ Q }}</h3>
+                     <h3>Занимаемое место на складе заказчика F: {{ F }}</h3>
+                     <h3>Стоимость поставок TC: {{ TC }}</h3>
                      <h3>Общая стоимость системы поставок VMI: {{ vmi }}</h3>
                  </span>
           </div>
